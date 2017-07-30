@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="person" class="com.ayush.prac.Person">
+		<property name="personName" value="User 1"></property>
+		<property name="personAge" value="36"></property>
+	</bean>
+	
+	<bean id="person2" class="com.ayush.prac.Person">
+		<property name="personName" value="User 2"></property>
+		<property name="personAge" value="34"></property>
+	</bean>
+	
+	<bean id="person3" class="com.ayush.prac.Person">
+		<property name="personName" value="User 3"></property>
+		<property name="personAge" value="3"></property>
+	</bean>
+
+	<bean id="address" class="com.ayush.prac.Address">
+		<property name="addLine1" value="flat no 0"></property>
+		<property name="addLine2" value="block no 0"></property>
+		<property name="city" value="SG"></property>
+		<property name="state" value="Central"></property>
+		<property name="postalCode" value="110011"></property>
+		<property name="country" value="Singapore"></property>
+	</bean>
+	
+	<bean id="address2" class="com.ayush.prac.Address">
+		<property name="addLine1" value="flat no 1"></property>
+		<property name="addLine2" value="block no 1"></property>
+		<property name="city" value="Krabi"></property>
+		<property name="state" value="Phuket"></property>
+		<property name="postalCode" value="456765"></property>
+		<property name="country" value="Thailand"></property>
+	</bean>
+	
+	<bean id="address3" class="com.ayush.prac.Address">
+		<property name="addLine1" value="flat no 2"></property>
+		<property name="addLine2" value="block no 2"></property>
+		<property name="city" value="Bali"></property>
+		<property name="state" value="Central"></property>
+		<property name="postalCode" value="8247393"></property>
+		<property name="country" value="Indonesia"></property>
+	</bean>
+	
+	<bean id="record" class="com.ayush.prac.Record">
+		<constructor-arg>
+			<ref bean="person"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="address"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="questions" class="com.ayush.prac.Questions">
+		<constructor-arg value="001"/>
+		<constructor-arg value="Super User"/>
+		<constructor-arg>
+			<map>
+				<entry key="what is 2+2" value="22"/>
+				<entry key="what is distance between sun and moon"
+					 value="same as distance between monn and sun"/>
+				<entry key="what is what" value="a question"/>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="questionsV2" class="com.ayush.prac.QuestionsV2">
+		<constructor-arg value="1234567890"/>
+		<constructor-arg value="Super User"/>
+		<constructor-arg>
+			<map>
+				<entry key-ref="person" value-ref="address"/>
+				<entry key-ref="person3" value-ref="address3"/>
+				<entry key-ref="person2" value-ref="address2"/>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

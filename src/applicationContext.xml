@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="person" class="com.ayush.prac.Person">
+		<property name="personName" value="Ayush Verma"></property>
+		<property name="personAge" value="36"></property>
+	</bean>
+
+	<bean id="address" class="com.ayush.prac.Address">
+		<property name="addLine1" value="flat no #"></property>
+		<property name="addLine2" value="block no #"></property>
+		<property name="city" value="SG"></property>
+		<property name="state" value="Central"></property>
+		<property name="postalCode" value="110011"></property>
+		<property name="country" value="Singapore"></property>
+	</bean>
+	
+	<bean id="pConstructor" class="com.ayush.prac.Person">
+		<constructor-arg value="AYUSME VERMA"></constructor-arg>
+		<constructor-arg value="3" type="int"></constructor-arg>
+	</bean>
+</beans>
